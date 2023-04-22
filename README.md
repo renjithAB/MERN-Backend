@@ -1,19 +1,27 @@
 # Advanced Syntax and ES6 Features
 
-## Advanced syntax features
-
-### Arrow Functions
-
-Arrow functions are intruduced in `EC6` which allows to write functions in more cleaner way
-
-syntax
-```
-let myFunction = (arg1, arg2, ...argN) => {
-    statement(s)
+## classes and inheritence 
+```js
+class ParentClass {
+  constructor(parentName) {
+    this.parentname = parentName;
+  }
+  returnParent() {
+    return this.parentname;
+  }
 }
-```
-### Arrow function with no arguments
-``` js
-const arrowFunction = () => console.log('consoled from arrow function")
-arrowFunction()
+
+class Child extends ParentClass {
+  constructor(parantName, childName) {
+    super(parantName);
+    this.childName = childName;
+  }
+  returnChild() {
+    return this.returnParent() + this.childName;
+  }
+}
+
+let child = new Child("parent", "child");
+console.log(child.returnChild());
+
 ```
